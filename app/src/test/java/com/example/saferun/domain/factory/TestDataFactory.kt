@@ -1,11 +1,11 @@
-package com.example.saferun.data.local.factory
+package com.example.saferun.domain.factory
 
-import com.example.saferun.data.local.HeadingDegree
-import com.example.saferun.data.local.LocationData
-import com.example.saferun.data.local.PitchDegree
-import com.example.saferun.data.local.RollDegree
-import com.example.saferun.data.local.SensorData
-import com.example.saferun.data.local.Speed
+import com.example.saferun.domain.model.HeadingDegree
+import com.example.saferun.domain.model.LocationData
+import com.example.saferun.domain.model.PitchDegree
+import com.example.saferun.domain.model.RollDegree
+import com.example.saferun.domain.model.SensorData
+import com.example.saferun.domain.model.Speed
 
 class TestDataFactory {
     companion object {
@@ -16,6 +16,7 @@ class TestDataFactory {
                 latitude = 20.2,
                 longitude = 120.9,
                 isGpsAvailable = true,
+                timestamp = System.currentTimeMillis(),
             )
 
         @JvmStatic
