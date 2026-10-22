@@ -1,12 +1,23 @@
 package com.example.saferun.data.local.factory
 
 import com.example.saferun.data.local.HeadingDegree
+import com.example.saferun.data.local.LocationData
 import com.example.saferun.data.local.PitchDegree
 import com.example.saferun.data.local.RollDegree
 import com.example.saferun.data.local.SensorData
+import com.example.saferun.data.local.Speed
 
 class TestDataFactory {
     companion object {
+        @JvmStatic
+        fun buildDefaultLocationDataInstance(): LocationData =
+            LocationData(
+                speed = Speed(60F),
+                latitude = 20.2,
+                longitude = 120.9,
+                isGpsAvailable = true,
+            )
+
         @JvmStatic
         fun buildDefaultSensorDataInstance(): SensorData =
             SensorData(
