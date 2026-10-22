@@ -1,8 +1,10 @@
-package com.example.saferun.data.local
+package com.example.saferun.domain.model
 
-import com.example.saferun.data.local.LocationDataConstraints.INVALID_LATITUDE
-import com.example.saferun.data.local.LocationDataConstraints.INVALID_LONGITUDE
-import com.example.saferun.data.local.LocationDataConstraints.NEGATIVE_SPEED
+import com.example.saferun.domain.factory.TestDataFactory.Companion.buildDefaultLocationDataInstance
+import com.example.saferun.domain.model.LocationDataConstraints.INVALID_LATITUDE
+import com.example.saferun.domain.model.LocationDataConstraints.INVALID_LONGITUDE
+import com.example.saferun.domain.model.LocationDataConstraints.INVALID_TIMESTAMP
+import com.example.saferun.domain.model.LocationDataConstraints.NEGATIVE_SPEED
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -17,12 +19,7 @@ class LocationDataTest {
         @DisplayName("Debería crearse una instancia de LocationData con datos correctos")
         fun shouldCreateALocationDataInstanceWithValidData() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 20.2,
-                    longitude = 120.9,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance()
             }
         }
     }
@@ -34,12 +31,7 @@ class LocationDataTest {
         fun shouldNotCreateALocationDataInstanceWithLatitudeLowerThanMinus90() {
             val exception =
                 assertThrows<IllegalArgumentException> {
-                    LocationData(
-                        Speed(60F),
-                        latitude = -91.0,
-                        longitude = 120.9,
-                        isGpsAvailable = true,
-                    )
+                    buildDefaultLocationDataInstance().withLatitude(-91.0)
                 }
 
             assertEquals(exception.message, INVALID_LATITUDE)
@@ -50,12 +42,7 @@ class LocationDataTest {
         fun shouldNotCreateALocationDataInstanceWithLatitudeHigherThan90() {
             val exception =
                 assertThrows<IllegalArgumentException> {
-                    LocationData(
-                        Speed(60F),
-                        latitude = 125.5,
-                        longitude = 120.9,
-                        isGpsAvailable = true,
-                    )
+                    buildDefaultLocationDataInstance().withLatitude(125.5)
                 }
 
             assertEquals(exception.message, INVALID_LATITUDE)
@@ -66,12 +53,7 @@ class LocationDataTest {
         fun shouldNotCreateALocationDataInstanceWithLongitudeLowerThanMinus180() {
             val exception =
                 assertThrows<IllegalArgumentException> {
-                    LocationData(
-                        Speed(60F),
-                        latitude = 62.1,
-                        longitude = -189.6,
-                        isGpsAvailable = true,
-                    )
+                    buildDefaultLocationDataInstance().withLongitude(-189.6)
                 }
 
             assertEquals(exception.message, INVALID_LONGITUDE)
@@ -82,12 +64,7 @@ class LocationDataTest {
         fun shouldNotCreateALocationDataInstanceWithLongitudeHigherThan180() {
             val exception =
                 assertThrows<IllegalArgumentException> {
-                    LocationData(
-                        Speed(60F),
-                        latitude = 62.1,
-                        longitude = 189.6,
-                        isGpsAvailable = true,
-                    )
+                    buildDefaultLocationDataInstance().withLongitude(189.6)
                 }
 
             assertEquals(exception.message, INVALID_LONGITUDE)
@@ -97,12 +74,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la latitud es exactamente 0")
         fun shouldNotThrowAnythingIfLatitudeIsZero() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 0.0,
-                    longitude = 144.6,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLatitude(0.0)
             }
         }
 
@@ -110,12 +82,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la latitud es exactamente 90")
         fun shouldNotThrowAnythingIfLatitudeIsExactly90() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 90.0,
-                    longitude = 144.6,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLatitude(90.0)
             }
         }
 
@@ -123,12 +90,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la latitud es exactamente -90")
         fun shouldNotThrowAnythingIfLatitudeIsExactlyMinus90() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = -90.0,
-                    longitude = 144.6,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLatitude(-90.0)
             }
         }
 
@@ -136,12 +98,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la longitud es exactamente 0")
         fun shouldNotThrowAnythingIfLongitudeIsZero() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 52.78,
-                    longitude = 0.0,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLongitude(0.0)
             }
         }
 
@@ -149,12 +106,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la longitud es exactamente 180")
         fun shouldNotThrowAnythingIfLongitudeIsExactly180() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 52.78,
-                    longitude = 180.0,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLongitude(180.0)
             }
         }
 
@@ -162,12 +114,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si la longitud es exactamente -180")
         fun shouldNotThrowAnythingIfLongitudeIsExactlyMinus180() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 52.78,
-                    longitude = -180.0,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLongitude(-180.0)
             }
         }
 
@@ -175,12 +122,7 @@ class LocationDataTest {
         @DisplayName("No debería arrojar ninguna excepción si tanto latitud y longitud son exactamente cero")
         fun shouldNotThrowAnythingIfBothLatitudeAndLongitudeAreZero() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(60F),
-                    latitude = 0.0,
-                    longitude = 0.0,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withLongitude(0.0).withLatitude(0.0)
             }
         }
     }
@@ -192,12 +134,7 @@ class LocationDataTest {
         fun shouldNotCreateALocationDataInstanceWithInvalidSpeed() {
             val exception =
                 assertThrows<IllegalArgumentException> {
-                    LocationData(
-                        Speed(-100F),
-                        latitude = 20.2,
-                        longitude = 120.9,
-                        isGpsAvailable = true,
-                    )
+                    buildDefaultLocationDataInstance().withSpeed(Speed(-100F))
                 }
 
             assertEquals(exception.message, NEGATIVE_SPEED)
@@ -207,13 +144,43 @@ class LocationDataTest {
         @DisplayName("No debería arrojar excepción si la velocidad actual es exactamente 0 kilómetros por hora")
         fun shouldNotThrowExceptionWhenSpeedIsZero() {
             assertDoesNotThrow {
-                LocationData(
-                    Speed(0F),
-                    latitude = 20.2,
-                    longitude = 120.9,
-                    isGpsAvailable = true,
-                )
+                buildDefaultLocationDataInstance().withSpeed(Speed(0F))
             }
+        }
+    }
+
+    @Nested
+    inner class TimestampValidation {
+        @Test
+        @DisplayName("Debería crearse una instancia de LocationData con timestamp válido")
+        fun shouldCreateALocationDataInstanceWithValidTimestamp() {
+            assertDoesNotThrow { buildDefaultLocationDataInstance() }
+        }
+
+        @Test
+        @DisplayName("No debería poder crear una instancia de LocationData con timestamp cero")
+        fun shouldNotCreateALocationDataInstanceWithZeroTimestamp() {
+            val exception =
+                assertThrows<IllegalArgumentException> {
+                    buildDefaultLocationDataInstance().withTimestamp(
+                        0L,
+                    )
+                }
+
+            assertEquals(exception.message, INVALID_TIMESTAMP)
+        }
+
+        @Test
+        @DisplayName("No debería poder crear una instancia de LocationData con un timestamp menor a cero")
+        fun shouldNotCreateALocationDataInstanceWithTimestampLowerThanZero() {
+            val exception =
+                assertThrows<IllegalArgumentException> {
+                    buildDefaultLocationDataInstance().withTimestamp(
+                        -9999L,
+                    )
+                }
+
+            assertEquals(exception.message, INVALID_TIMESTAMP)
         }
     }
 }
