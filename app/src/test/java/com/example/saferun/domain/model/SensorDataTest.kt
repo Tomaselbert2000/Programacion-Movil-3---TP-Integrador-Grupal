@@ -1,9 +1,9 @@
-package com.example.saferun.data.local
+package com.example.saferun.domain.model
 
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.buildDefaultSensorDataInstance
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.generateRandomHeading
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.generateRandomPitch
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.generateRandomRoll
+import com.example.saferun.domain.factory.TestDataFactory.Companion.buildDefaultSensorDataInstance
+import com.example.saferun.domain.factory.TestDataFactory.Companion.generateRandomHeading
+import com.example.saferun.domain.factory.TestDataFactory.Companion.generateRandomPitch
+import com.example.saferun.domain.factory.TestDataFactory.Companion.generateRandomRoll
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

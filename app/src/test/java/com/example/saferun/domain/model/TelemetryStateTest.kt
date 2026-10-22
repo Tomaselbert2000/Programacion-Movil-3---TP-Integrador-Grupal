@@ -1,7 +1,7 @@
-package com.example.saferun.data.local
+package com.example.saferun.domain.model
 
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.buildDefaultLocationDataInstance
-import com.example.saferun.data.local.factory.TestDataFactory.Companion.buildDefaultSensorDataInstance
+import com.example.saferun.domain.factory.TestDataFactory.Companion.buildDefaultLocationDataInstance
+import com.example.saferun.domain.factory.TestDataFactory.Companion.buildDefaultSensorDataInstance
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -182,6 +182,7 @@ class TelemetryStateTest {
                             latitude = 34.6037,
                             longitude = -58.3816,
                             isGpsAvailable = true,
+                            System.currentTimeMillis(),
                         ),
                     sensorData =
                         SensorData(

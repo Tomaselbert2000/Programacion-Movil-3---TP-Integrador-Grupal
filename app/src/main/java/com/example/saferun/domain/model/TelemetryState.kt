@@ -1,4 +1,4 @@
-package com.example.saferun.data.local
+package com.example.saferun.domain.model
 
 data class TelemetryState(
     val locationData: LocationData,

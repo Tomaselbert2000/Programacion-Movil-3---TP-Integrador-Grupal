@@ -1,14 +1,14 @@
-package com.example.saferun.data.local
+package com.example.saferun.domain.model
 
-import com.example.saferun.data.local.SensorDataConstraints.INVALID_HEADING
-import com.example.saferun.data.local.SensorDataConstraints.INVALID_PITCH
-import com.example.saferun.data.local.SensorDataConstraints.INVALID_ROLL
-import com.example.saferun.data.local.SensorDataConstraints.MAX_HEADING
-import com.example.saferun.data.local.SensorDataConstraints.MAX_PITCH
-import com.example.saferun.data.local.SensorDataConstraints.MAX_ROLL
-import com.example.saferun.data.local.SensorDataConstraints.MIN_HEADING
-import com.example.saferun.data.local.SensorDataConstraints.MIN_PITCH
-import com.example.saferun.data.local.SensorDataConstraints.MIN_ROLL
+import com.example.saferun.domain.model.SensorDataConstraints.INVALID_HEADING
+import com.example.saferun.domain.model.SensorDataConstraints.INVALID_PITCH
+import com.example.saferun.domain.model.SensorDataConstraints.INVALID_ROLL
+import com.example.saferun.domain.model.SensorDataConstraints.MAX_HEADING
+import com.example.saferun.domain.model.SensorDataConstraints.MAX_PITCH
+import com.example.saferun.domain.model.SensorDataConstraints.MAX_ROLL
+import com.example.saferun.domain.model.SensorDataConstraints.MIN_HEADING
+import com.example.saferun.domain.model.SensorDataConstraints.MIN_PITCH
+import com.example.saferun.domain.model.SensorDataConstraints.MIN_ROLL
 
 @JvmInline
 value class PitchDegree(
