@@ -1,7 +1,5 @@
 package com.example.saferun.domain.model
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.saferun.domain.model.LocationDataConstraints.INVALID_TIMESTAMP
 
 @JvmInline
@@ -9,7 +7,6 @@ value class Speed(
     val value: Float,
 )
 
-@RequiresApi(Build.VERSION_CODES.S)
 @Suppress("ktlint:standard:max-line-length")
 data class LocationData(
     val speed: Speed,
