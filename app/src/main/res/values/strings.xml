@@ -1,3 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SafeRun</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_tagline">Copiloto en vivo</string>
+    <string name="dashboard_live">EN VIVO</string>
+    <string name="dashboard_paused">PAUSADO</string>
+    <string name="dashboard_map_title">Recorrido en vivo</string>
+    <string name="dashboard_map_demo">Ruta demo</string>
+    <string name="dashboard_speed_label">VELOCIDAD</string>
+    <string name="speed_unit">km/h</string>
+    <string name="speed_max">MÁX %1$s km/h</string>
+    <string name="metric_average">Promedio</string>
+    <string name="metric_slope">Inclinación</string>
+    <string name="metric_heading">Brújula</string>
+    <string name="slope_flat">Plano</string>
+    <string name="slope_up">Subida</string>
+    <string name="slope_down">Bajada</string>
+    <string name="gps_active">GPS activo</string>
+    <string name="gps_searching">Buscando GPS</string>
+    <string name="gps_disabled">GPS desactivado</string>
+    <string name="gps_accuracy">±%1$s m</string>
+    <string name="gps_no_accuracy">Sin señal</string>
+    <string name="stat_time">Tiempo</string>
+    <string name="stat_distance">Distancia</string>
+    <string name="stat_signal">Señal</string>
+    <string name="action_finish">FINALIZAR</string>
+    <string name="action_pause">Pausar</string>
+    <string name="action_resume">Reanudar</string>
+    <string name="summary_title">Recorrido finalizado</string>
+    <string name="summary_message">Este resumen se guardará en tu historial cuando se habilite la persistencia local.</string>
+    <string name="summary_new_ride">Nueva ruta</string>
+    <string name="summary_close">Cerrar</string>
+    <string name="summary_time">Tiempo</string>
+    <string name="summary_distance">Distancia</string>
+    <string name="summary_average">Promedio</string>
+    <string name="summary_max">Velocidad máx.</string>
+
+    <!-- Navigation -->
+    <string name="nav_live">En vivo</string>
+    <string name="nav_scanner">Escáner</string>
+    <string name="nav_settings">Ajustes</string>
+
+    <!-- Compass -->
+    <string name="compass_degrees">%1$s°</string>
+    <string name="compass_current_heading">Rumbo actual</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">Escáner de carteles</string>
+    <string name="scanner_subtitle">Lectura y traducción en tiempo real</string>
+    <string name="scanner_badge">Próximamente</string>
+    <string name="scanner_placeholder_title">Apuntá la cámara a un cartel</string>
+    <string name="scanner_placeholder_body">El texto detectado se traduce al instante y se muestra sobre la imagen, incluso sin conexión.</string>
+    <string name="scanner_feature_ocr">Reconocimiento de texto con ML Kit</string>
+    <string name="scanner_feature_translate">Traducción de español, inglés y portugués</string>
+    <string name="scanner_feature_offline">Funciona sin conexión</string>
+    <string name="scanner_action">Abrir cámara</string>
+    <string name="scanner_disabled">Se habilita en la próxima entrega</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_subtitle">Seguridad, sensores y apariencia</string>
+    <string name="settings_security">Seguridad</string>
+    <string name="settings_detection_fall">Detección de caídas</string>
+    <string name="settings_detection_fall_desc">Cuenta regresiva de 30 s, alarma y pantalla parpadeante.</string>
+    <string name="settings_low_light">Modo nocturno automático</string>
+    <string name="settings_low_light_desc">Alto contraste y linterna con baja luz ambiental.</string>
+    <string name="settings_compass">Brújula</string>
+    <string name="settings_compass_desc">Orientación y calibración con el magnetómetro.</string>
+    <string name="settings_appearance">Apariencia</string>
+    <string name="settings_night_preview">Vista nocturna</string>
+    <string name="settings_night_preview_desc">Previsualiza el tema de alto contraste.</string>
+    <string name="settings_permissions">Permisos</string>
+    <string name="settings_permission_location">Ubicación precisa</string>
+    <string name="settings_permission_camera">Cámara</string>
+    <string name="settings_permission_hint">SafeRun solicita estos permisos al iniciar una ruta.</string>
+    <string name="settings_about">Acerca de SafeRun</string>
+    <string name="settings_about_body">Copiloto de running y ciclismo con telemetría, seguridad y escaneo de carteles. Todos los datos quedan en el dispositivo.</string>
+    <string name="settings_version">Versión %1$s</string>
+    <string name="settings_demo">Modo demo</string>
+    <string name="settings_demo_desc">Permite simular caídas, baja luz y recorridos para presentaciones.</string>
 </resources>

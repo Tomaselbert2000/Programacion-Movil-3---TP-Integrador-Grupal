@@ -5,9 +5,6 @@
     <!-- Location -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission
-        android:name="android.permission.ACCESS_MOCK_LOCATION"
-        tools:ignore="MockLocation" />
 
     <!-- Map tiles -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -44,12 +41,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SafeRun">
+        android:theme="@style/Theme.SafeRun"
+        tools:targetApi="33">
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.SafeRun"
             android:windowSoftInputMode="adjustResize"

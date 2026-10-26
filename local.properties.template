@@ -1,7 +1,7 @@
 # Copiá este archivo como `local.properties` en la raíz del proyecto.
 # La ruta al SDK de Android la agrega Android Studio automáticamente.
 #
-# sdk.dir=C:/Users/tu_usuario/AppData/Local/Android/Sdk
+# sdk.dir=C\:/Users/tu_usuario/AppData/Local/Android/Sdk
 #
 # SafeRun usa OpenStreetMap por defecto y NO necesita clave.
 # Si más adelante se conecta Google Maps, completá esta clave:
