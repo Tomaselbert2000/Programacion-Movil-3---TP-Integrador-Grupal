@@ -51,9 +51,9 @@ object SensorDataConstraints {
     const val MIN_HEADING = -180F
     const val MAX_HEADING = 180F
     const val INVALID_PITCH =
-        "El valor de ladeo del dispositivo no puede ser menor a -90 grados ni mayor a 90 grados"
+        "El valor de inclinación o cabeceo del dispositivo no puede ser menor a -90 grados ni mayor a 90 grados"
     const val INVALID_ROLL =
-        "El valor de giro del dispositivo no puede ser menor a -180 grados ni mayor a 180 grados"
+        "El valor de ladeo del dispositivo no puede ser menor a -180 grados ni mayor a 180 grados"
     const val INVALID_HEADING =
-        "El valor de cabeceo del dispositivo no puede ser menor a -180 grados ni mayor a 180 grados"
+        "El valor de orientación del dispositivo no puede ser menor a -180 grados ni mayor a 180 grados"
 }
