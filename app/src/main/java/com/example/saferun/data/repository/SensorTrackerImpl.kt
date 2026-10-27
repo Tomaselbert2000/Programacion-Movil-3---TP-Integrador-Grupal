@@ -7,6 +7,7 @@ import android.hardware.SensorManager
 import com.example.saferun.data.repository.SensorIndex.AZIMUTH
 import com.example.saferun.data.repository.SensorIndex.PITCH
 import com.example.saferun.data.repository.SensorIndex.ROLL
+import com.example.saferun.data.repository.SensorIndex.SENSOR_NOT_AVAILABLE
 import com.example.saferun.domain.model.HeadingDegree
 import com.example.saferun.domain.model.PitchDegree
 import com.example.saferun.domain.model.RollDegree
@@ -24,7 +25,10 @@ class SensorTrackerImpl
     ) : SensorTracker {
         override fun getSensorDataFlow(): Flow<SensorData> =
             callbackFlow {
-                if (sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR) == null) throw IllegalStateException()
+                val defaultSensor = (
+                    sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+                        ?: throw IllegalStateException(SENSOR_NOT_AVAILABLE)
+                )
 
                 val listener =
                     object : SensorEventListener {
@@ -50,8 +54,7 @@ class SensorTrackerImpl
 
                 sensorManager.registerListener(
                     listener,
-                    sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR),
-                    @Suppress("ktlint:standard:max-line-length")
+                    defaultSensor,
                     SensorManager.SENSOR_DELAY_NORMAL,
                 )
 
@@ -85,4 +88,5 @@ object SensorIndex {
     const val AZIMUTH = 0
     const val PITCH = 1
     const val ROLL = 2
+    const val SENSOR_NOT_AVAILABLE = "Sensor no disponible"
 }
