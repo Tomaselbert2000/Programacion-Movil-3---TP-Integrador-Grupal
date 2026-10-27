@@ -9,9 +9,7 @@ import com.google.android.gms.location.LocationResult
 import io.mockk.CapturingSlot
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.mockkStatic
 import io.mockk.slot
-import io.mockk.unmockkStatic
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
@@ -19,9 +17,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -29,21 +25,9 @@ import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 
-class LocationTrackerImplTest {
+class LocationTrackerImplTest : BaseRepositoryTest() {
     val mockLocationProvider = loadMockedLocationProvider()
     val mockLocationTracker = LocationTrackerImpl(mockLocationProvider)
-
-    @BeforeEach
-    fun init() {
-        mockkStatic(Looper::class)
-
-        every { Looper.getMainLooper() } returns mockk(relaxed = true)
-    }
-
-    @AfterEach
-    fun tearDownMocks() {
-        unmockkStatic(Looper::class)
-    }
 
     @Nested
     inner class Constructor {
